@@ -1,6 +1,8 @@
 # Container image that runs my code
-FROM mcr.microsoft.com/windows/nanoserver:1909
+FROM mcr.microsoft.com/dotnet/framework/runtime:3.5
 
-# COPY entrypoint.bat /entrypoint.bat
+RUN mkdir C:\scripts
 
-ENTRYPOINT ["/entrypoint.bat"]
+COPY entrypoint.bat C:\scripts\entrypoint.bat
+
+ENTRYPOINT ["C:\scripts\entrypoint.bat"]
